@@ -1,0 +1,14 @@
+.header {
+    display: flex;
+}
+
+.menu {
+    display: flex;
+    margin-left: auto;
+}
+
+.deskText {
+    text-align: center;
+
+}
+
