@@ -1,8 +1,8 @@
 import {  BrowserRouter as Router,  Switch,Route,Redirect} from "react-router-dom"
 import { BrowserRouter } from 'react-router-dom'
-import { Home } from './components/Home'
-import {Pokemons } from './components/Pokemons'
-// import { Menu } from "./components/Menu"
+import {PokemonList} from './components/PokemonList'
+import {Pokemon } from './components/Pokemon'
+
 
 
 
@@ -11,11 +11,9 @@ function App() {
 
   return (
     <BrowserRouter>
-    {/* <Menu/> */}
       <Switch>
-        <Home path='/'component={Home}/>
-      <Route path='/pokemon' component={Pokemons}/>
-
+        <Route exact path='/pokemon' component={PokemonList}/>
+      <Route path='/pokemon/:name' component={Pokemon}/>
       </Switch>
     </BrowserRouter>
   )
