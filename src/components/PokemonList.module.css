@@ -1,11 +1,13 @@
+.container {
+    background-color: #94a0e9;
+}
+
 .pokemons {
     display: flex;
     justify-content: center;
     flex-wrap: wrap;
     align-items: center;
     gap: 12px;
-
-
 
 }
 
@@ -17,6 +19,45 @@
     border: 1px solid #ccc;
     padding: 12px;
     border-radius: 9px;
+    transition: transform  ease-in-out 0.4s  1s  ;
+}
 
-    
+.pokemons div:hover {
+    background: rgba(9, 39, 232, 0.58);
+    border-radius: 26px;
+    transform: translateY(-10px) ;
+
+}
+
+img {
+    max-width: 250px;
+}
+
+.pokemonName {
+    color: rgb(255, 255, 255);
+    font-size: 24px;
+    text-decoration: none;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    line-height: 3em;
+}
+
+.btnpokemonAdd {
+    padding: 12px;
+    font-size: 24px;
+    border-radius: 12px;
+    text-align: center;
+    background-color: #94a0e9;
+    color: rgb(255, 255, 255);
+    border: 10px solid rgb(131,58,180);
+    background:  rgb(131,58,180);
+    transition: text-decoration ease-out 0.7s 0.3s;
+    margin: auto  ;
+    outline: none;
+    cursor: pointer;
+}
+
+.btncontainer {
+    padding: 32px;
+    display: flex;
 }

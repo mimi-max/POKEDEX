@@ -29,26 +29,26 @@ export class PokemonList extends Component {
 
         let url = `https://pokeapi.co/api/v2/pokemon?offset=${this.state.page}&limit=20&types=fire`
         // if(this.state.page <100){
-            fetch(url).then(response => response.json())
+        fetch(url).then(response => response.json())
             .then((data) => {
                 console.log(data)
 
                 this.setState(
                     {
-                        page: this.state.page +20,
-                        ListPokemon:[...this.state.ListPokemon,...data.results] 
+                        page: this.state.page + 20,
+                        ListPokemon: [...this.state.ListPokemon, ...data.results]
                     }
-                    
+
                 )
             })
         // }
-        
+
 
     }
 
     render() {
 
-        return <>
+        return <div className={styles.container}>
             <div className={styles.pokemons}>
 
                 {this.state.ListPokemon.map((pokemon) => {
@@ -56,22 +56,23 @@ export class PokemonList extends Component {
                     const imgIndex = url.split('/')[6]
 
                     return <div key={pokemon.url} >
-                        
-                        
-                        <img src={`https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/home/${imgIndex}.png`}/>
-                        <Link to={`/pokemon/${pokemon.name}`}><p>{pokemon.name}</p></Link>
+
+
+                        <img src={`https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/home/${imgIndex}.png`} />
+                        <Link className={styles.pokemonName} to={`/pokemon/${pokemon.name}`}><p >{pokemon.name}</p></Link>
 
 
                     </div>
                 })}
 
-                
+
 
             </div>
-            <div>
-                {this.state.NextUrl && <button onClick={this.pokemon.bind(this)}>Add Pokemon</button>}
+            <div className={styles.btncontainer}>
+                {this.state.NextUrl && <button className={styles.btnpokemonAdd} onClick={this.pokemon.bind(this)}>Add Pokemon</button>}
 
             </div>
-        </>
+
+        </div>
     }
 }
