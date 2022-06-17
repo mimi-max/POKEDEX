@@ -1,5 +1,5 @@
 .container {
-    background-color: #94a0e9;
+    height: 100vh;
 }
 
 .pokemons {
@@ -19,7 +19,7 @@
     border: 1px solid #ccc;
     padding: 12px;
     border-radius: 9px;
-    transition: transform  ease-in-out 0.4s  1s  ;
+    transition: transform  ease-in-out 0.4s  0.5s, background ease-in-out 0.25s  ;
 }
 
 .pokemons div:hover {
@@ -34,12 +34,16 @@ img {
 }
 
 .pokemonName {
-    color: rgb(255, 255, 255);
+    color: #000;
     font-size: 24px;
     text-decoration: none;
     text-transform: uppercase;
     letter-spacing: 0.1em;
     line-height: 3em;
+}
+.pokemons div:hover .pokemonName{
+    color: #fff;
+
 }
 
 .btnpokemonAdd {
@@ -49,9 +53,8 @@ img {
     text-align: center;
     background-color: #94a0e9;
     color: rgb(255, 255, 255);
-    border: 10px solid rgb(131,58,180);
-    background:  rgb(131,58,180);
-    transition: text-decoration ease-out 0.7s 0.3s;
+    border: 1px  solid rgba(58, 180, 121, 0.319);
+    background:  rgb(51 185 58 / 79%);
     margin: auto  ;
     outline: none;
     cursor: pointer;

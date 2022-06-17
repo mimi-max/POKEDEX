@@ -1,0 +1,31 @@
+.pokemonContainer{
+    position:relative
+}
+.typepokemon{
+    position: absolute;
+    left: 26%;
+    top: 10%;
+
+}
+.pokemonContainerImg{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.pokemonName{
+    font-size: 36px;
+     text-transform: uppercase;
+      color: white;
+
+}
+.typepokemonBtn{
+    display: flex;
+    gap:6px;
+}
+.typepokemonBtn span{
+    padding: 12px;
+    border-radius: 12px;
+    width: 80px;
+    border:none;
+    background-color: #fff;
+}
