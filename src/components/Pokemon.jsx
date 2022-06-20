@@ -32,8 +32,10 @@ export class Pokemon extends Component {
         Pokemon: null,
         buttonShiny: false,
         buttonPokemon: false,
-    }
+        tabOpen: 'about',
 
+
+    }
     componentDidMount() {
         const name = this.props.match.params.name
         pokemonApi(name).then((data) => {
@@ -54,13 +56,13 @@ export class Pokemon extends Component {
             }
         )
     }
-    // buttonPokemon() {
-    //     this.setState(
-    //         {
-    //             buttonPokemon: !this.state.buttonPokemon
-    //         }
-    //     )
-    // }
+    openAbout(id) {
+        this.setState({
+            tabOpen: id
+        })
+        console.log(id)
+
+    }
 
 
     render() {
@@ -98,8 +100,8 @@ export class Pokemon extends Component {
                     {!this.state.buttonShiny &&
                         <div>
                             <img src={this.state.Pokemon.sprites.other.home.front_default} />
-                            <div>
-                                <button onClick={this.button.bind(this)}>Show Shiny Image</button>
+                            <div className={styles.imageShinyPokemon}>
+                                <button className={styles.btnImageShinyPokemon} onClick={this.button.bind(this)}>Show Shiny Image</button>
                             </div>
 
                         </div>
@@ -109,22 +111,50 @@ export class Pokemon extends Component {
                     {this.state.buttonShiny &&
                         <div>
                             <img src={this.state.Pokemon.sprites.other.home.front_shiny} />
-                    
-                        <div>
-                        <button onClick={this.button.bind(this)}>Show Pokemon Image</button>
-                    </div>
-                    </div>
+
+                            <div className={styles.imageShinyPokemon}>
+                                <button className={styles.btnImageShinyPokemon} onClick={this.button.bind(this)}>Show Pokemon Image</button>
+                            </div>
+                        </div>
 
                     }
 
                 </div>
             }
-
+            {/* 
             <div>
                 {this.state.Pokemon && <p>{this.state.Pokemon.weight / 10} kg</p>}
                 {this.state.Pokemon && <p>{this.state.Pokemon.height * 10} cm</p>}
 
+            </div> */}
+            <div className={styles.tabs}>
+                <button className={styles.tab} onClick={this.openAbout.bind(this, "about")}>About</button>
+                <button className={styles.tab} onClick={this.openAbout.bind(this, "baseState")}>Base Stats</button>
             </div>
+
+            {this.state.tabOpen === 'about' && <div className={styles.tabAbout}>
+                <p className={styles.tabPara}><span className={styles.titleColumn}>Height:</span>{this.state.Pokemon && <span className={styles.tabSpan}>{this.state.Pokemon.weight / 10} kg</span>}</p>
+                <p className={styles.tabPara}><span className={styles.titleColumn}>Weight:</span> {this.state.Pokemon && <span className={styles.tabSpan}>{this.state.Pokemon.height * 10} cm</span>}</p>
+                <p className={styles.tabPara}><span className={styles.titleColumn}>Abilities:</span><span className={styles.tabSpan}>{this.state.Pokemon && this.state.Pokemon.abilities.map((ability)=>{
+                    return ability.ability.name
+                }).join(', ')}</span></p>
+            </div>}
+
+            {this.state.tabOpen === 'baseState' && <div>
+
+
+                <div className={styles.border}>{this.state.Pokemon && this.state.Pokemon.stats.map((stat)=>{
+        
+                    return<p className={styles.tabPara}>
+                    <span className={styles.titleColumn}>{stat.stat.name}</span>
+                    <span>{stat.base_stat}</span>
+                    <span className={styles.grey} style={{height:'24px', width:'20%',backgroundColor:'red',display:'block'}}></span>
+                    </p> 
+                })} </div>
+            </div>}
+
+
+
 
 
         </div>

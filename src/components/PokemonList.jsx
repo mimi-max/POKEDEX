@@ -72,6 +72,7 @@ export class PokemonList extends Component {
                 {this.state.NextUrl && <button className={styles.btnpokemonAdd} onClick={this.pokemon.bind(this)}>Add Pokemon</button>}
 
             </div>
+            
 
         </div>
     }
