@@ -4,6 +4,7 @@ import { pokemonApi } from '../services/FetchPokemons'
 import styles from './Pokemon.module.css'
 
 export class Pokemon extends Component {
+    totalStat = []
 
     types = {
         bug: '#14532d',
@@ -66,12 +67,13 @@ export class Pokemon extends Component {
 
 
     render() {
+        const totalStat = []
+        
+
         // console.log(this.props.match.params.name)
 
         const urlShowPokemonTypeOne = this.state.Pokemon && this.state.Pokemon.types[0] && this.state.Pokemon.types[0].type.url.split('/')[6]
         const urlShowPokemonTypeTwo = this.state.Pokemon && this.state.Pokemon.types[1] && this.state.Pokemon.types[1].type.url.split('/')[6]
-
-        // const hiddenTypeImageAfterClick=
 
 
         return <div className={styles.pokemonContainer}>
@@ -121,12 +123,7 @@ export class Pokemon extends Component {
 
                 </div>
             }
-            {/* 
-            <div>
-                {this.state.Pokemon && <p>{this.state.Pokemon.weight / 10} kg</p>}
-                {this.state.Pokemon && <p>{this.state.Pokemon.height * 10} cm</p>}
 
-            </div> */}
             <div className={styles.tabs}>
                 <button className={styles.tab} onClick={this.openAbout.bind(this, "about")}>About</button>
                 <button className={styles.tab} onClick={this.openAbout.bind(this, "baseState")}>Base Stats</button>
@@ -135,7 +132,7 @@ export class Pokemon extends Component {
             {this.state.tabOpen === 'about' && <div className={styles.tabAbout}>
                 <p className={styles.tabPara}><span className={styles.titleColumn}>Height:</span>{this.state.Pokemon && <span className={styles.tabSpan}>{this.state.Pokemon.weight / 10} kg</span>}</p>
                 <p className={styles.tabPara}><span className={styles.titleColumn}>Weight:</span> {this.state.Pokemon && <span className={styles.tabSpan}>{this.state.Pokemon.height * 10} cm</span>}</p>
-                <p className={styles.tabPara}><span className={styles.titleColumn}>Abilities:</span><span className={styles.tabSpan}>{this.state.Pokemon && this.state.Pokemon.abilities.map((ability)=>{
+                <p className={styles.tabPara}><span className={styles.titleColumn}>Abilities:</span><span className={styles.tabSpan}>{this.state.Pokemon && this.state.Pokemon.abilities.map((ability) => {
                     return ability.ability.name
                 }).join(', ')}</span></p>
             </div>}
@@ -143,14 +140,26 @@ export class Pokemon extends Component {
             {this.state.tabOpen === 'baseState' && <div>
 
 
-                <div className={styles.border}>{this.state.Pokemon && this.state.Pokemon.stats.map((stat)=>{
-        
-                    return<p className={styles.tabPara}>
-                    <span className={styles.titleColumn}>{stat.stat.name}</span>
-                    <span>{stat.base_stat}</span>
-                    <span className={styles.grey} style={{height:'24px', width:'20%',backgroundColor:'red',display:'block'}}></span>
-                    </p> 
+                <div className={styles.border}>{this.state.Pokemon && this.state.Pokemon.stats.map((stat) => {
+                    totalStat.push(stat.base_stat)
+                    
+                    return <>
+
+                        <p className={styles.tabPara}>
+
+                            <span className={styles.titleColumn}>{stat.stat.name}</span>
+
+                            <span>{stat.base_stat}</span>
+                            <span className={styles.grey} style={{ height: '5px', width: '20%', backgroundColor: 'red', display: 'block' }}></span>
+
+                        </p>
+                    
+
+                    </>
+
                 })} </div>
+                
+                <span>{totalStat.join( )}</span>
             </div>}
 
 
