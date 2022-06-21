@@ -1,7 +1,7 @@
 import {  BrowserRouter as Router,  Switch,Route,Redirect} from "react-router-dom"
 import { BrowserRouter } from 'react-router-dom'
 import {PokemonList} from './components/PokemonList'
-import {Pokemon } from './components/Pokemon'
+import Pokemon  from './components/Pokemon'
 
 
 
