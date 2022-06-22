@@ -20,5 +20,7 @@ module.exports = {
   rules: {
     'no-console': 'off',
     'react/prop-types': 'off',
+    'react/react-in-jsx-scope': 'off',
+    'react/jsx-no-bind': 'off',
   },
 };
