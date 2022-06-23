@@ -4,6 +4,7 @@ import { pokemonApi } from '../../services/FetchPokemons';
 import styles from './Pokemon.module.css';
 import Tabs from './components/Tabs';
 import Goback from './components/GoBack';
+import pokeball from '../../img/pokeball.svg';
 
 export default class Pokemon extends Component {
   types = {
@@ -72,14 +73,20 @@ export default class Pokemon extends Component {
 
     return (
 
-      <div id="pokemonContainer">
+      <div
+        id="pokemonContainer"
+        style={{
+          backgroundColor: pokemon ? this.types[pokemon.types[0].type.name] : '#fff',
+          backgroundImage: `url(${pokeball})`,
+        }}
+        className={styles.imgBackground}
+      >
         <div className={styles.pokemonContent}>
           <Link to="/pokemon"><Goback /></Link>
 
           {pokemon?.sprites && pokemon?.id && (
           <div
             className={styles.pokemonContainerImg}
-            style={{ backgroundColor: this.types[pokemon.types[0].type.name] }}
           >
             <div className={styles.typePokemonContainer}>
               {pokemon && <h1 className={styles.pokemonName}>{pokemon?.name}</h1>}
@@ -105,13 +112,15 @@ export default class Pokemon extends Component {
             <div className={styles.pokemonImageChange}>
               <img src={pokemon.sprites.other.home.front_default} alt={pokemon?.name} />
 
-              <button
-                type="button"
-                className={styles.btnImageShinyPokemon}
-                onClick={this.button.bind(this)}
-              >
-                Show Shiny Image
-              </button>
+              <div className={styles.btnImage}>
+                <button
+                  type="button"
+                  className={styles.btnImageShinyPokemon}
+                  onClick={this.button.bind(this)}
+                >
+                  Show Shiny Image
+                </button>
+              </div>
 
             </div>
             )}
@@ -120,13 +129,15 @@ export default class Pokemon extends Component {
             <div className={styles.pokemonImageChange}>
               <img src={pokemon.sprites.other.home.front_shiny} alt={pokemon?.name} />
 
-              <button
-                type="button"
-                className={styles.btnImageShinyPokemon}
-                onClick={this.button.bind(this)}
-              >
-                Show Pokemon Image
-              </button>
+              <div className={styles.btnImage}>
+                <button
+                  type="button"
+                  className={styles.btnImageShinyPokemon}
+                  onClick={this.button.bind(this)}
+                >
+                  Show Pokemon Image
+                </button>
+              </div>
 
             </div>
             )}

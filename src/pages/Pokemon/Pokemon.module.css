@@ -3,14 +3,14 @@
         margin: 0;
         color: #fff;
         text-transform: capitalize;
-        padding-top: 19%;
+        padding-top: 56px;
     }
 
     .pokemonContent {
         position: relative;
         width: 100%;
         color: #fff;
-        height:auto;
+        height: auto;
     }
 
     .pokemonImageChange {
@@ -23,7 +23,7 @@
     .idPokemon {
         position: absolute;
         left: 80%;
-        top:20%;
+        top: 20%;
     }
 
     .idPokemon {
@@ -37,14 +37,21 @@
     }
 
     .pokemonType {
-        display: block;
+        display: flex;
         background-color: rgba(255, 255, 255, 0.36);
         width: 80px;
-        height: 20px;
+        height: 32px;
         text-align: center;
         border-radius: 24px;
-        padding: 6px;
+        padding: 0 6px 0 6px;
         text-transform: capitalize;
+        justify-content: center;
+        align-items: center;
+    }
+
+
+    .btnImage {
+        margin-top: 12px;
     }
 
     .btnImageShinyPokemon {
@@ -58,10 +65,21 @@
         border-radius: 8px;
     }
 
+    .imgBackground {
+        background-repeat: no-repeat;
+        background-position: center 135px;
+        background-size: 274px;
+        min-height: 100vh;
+        display: flex;
+        flex-direction: column;
+    }
+
+
     .typePokemonContainer, .pokemonImageChange {
         margin: 0 16px 0 16px;
     }
-    .pokemonImageChange{
+
+    .pokemonImageChange {
         padding: 6px;
     }
 

@@ -1,0 +1,68 @@
+.tabsContainer {
+  background: white;
+  border-radius: 40px 40px 0 0;
+  flex: 1;
+}
+
+.tabs {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 12px;
+  padding: 12px;
+  gap: 8px;
+}
+
+.tabOpen {
+  margin-left: 16px;
+  margin-right: 16px;
+
+}
+
+.tab {
+  padding: 0 8px 0 8px;
+  font-size: 18px;
+  color: rgb(23, 22, 22);
+  background: transparent;
+  text-align: center;
+  font-weight: bold;
+  border: none;
+  position: relative;
+}
+
+.border {
+  border-top: 1px solid #ccc;
+}
+
+.currentTab::after {
+  content: '';
+  border-top: 2px solid #0005ff;
+  display: block;
+  position: absolute;
+  width: 100%;
+  z-index: 2;
+  top: 32px;
+  left: 0;
+  right: 0;
+}
+
+.stat {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+  margin: 12px 0;
+}
+
+.titleColumn {
+  width: 100px;
+}
+.progressbarResize{
+  flex-grow: 1;
+}
+/* .containerStat{
+  max-width: 372px;
+} */
+/* button:active{
+  border-bottom:greenyellow;
+  border-width:5px;
+} */
