@@ -16,6 +16,7 @@
 .tabOpen {
   margin-left: 16px;
   margin-right: 16px;
+  max-width: 600px;
 
 }
 
@@ -59,10 +60,12 @@
 .progressbarResize{
   flex-grow: 1;
 }
-/* .containerStat{
-  max-width: 372px;
-} */
-/* button:active{
-  border-bottom:greenyellow;
-  border-width:5px;
-} */
+
+
+@media screen and (min-width: 600px){
+  .tabOpen{
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+}

@@ -19,7 +19,7 @@
     border: 1px solid #ccc;
     padding: 12px;
     border-radius: 9px;
-    transition: transform  ease-in-out 0.4s  0.5s, background ease-in-out 0.25s  ;
+    transition: transform  ease-in-out 0.4s  0.5s, background ease-in-out 0.25s, border-radius  linear 0.25s  ;
 }
 
 .pokemons div:hover {

@@ -53,12 +53,14 @@ export default class PokemonList extends Component {
             const imgIndex = url.split('/')[6];
 
             return (
-              <div key={pokemon.url}>
+              <Link className={styles.pokemonName} to={`/pokemon/${pokemon.name}`}>
+                <div key={pokemon.url}>
 
-                <img src={`https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/home/${imgIndex}.png`} alt={pokemon.name} />
-                <Link className={styles.pokemonName} to={`/pokemon/${pokemon.name}`}><p>{pokemon.name}</p></Link>
+                  <img src={`https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/home/${imgIndex}.png`} alt={pokemon.name} />
+                  <p>{pokemon.name}</p>
 
-              </div>
+                </div>
+              </Link>
             );
           })}
 
